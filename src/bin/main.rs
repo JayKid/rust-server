@@ -5,11 +5,11 @@ use std::net::TcpStream;
 use std::net::TcpListener;
 
 use std::fs;
-use rustserver::Threadpool;
+use rustserver::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = rustserver::Threadpool::new(5);
+    let pool = ThreadPool::new(5);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
